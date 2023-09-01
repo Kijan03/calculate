@@ -188,7 +188,7 @@ double expression()
 double declaration()
 {
 	Token t = ts.get();
-	if (t.kind != name) error("name expected in declaration");
+	if (t.kind != name) error("name expected in declaration");	
 	string name = t.name;
 	if (is_declared(name)) error(name, " declared twice");
 	Token t2 = ts.get();
@@ -236,6 +236,8 @@ void calculate()
 
 int main()
 try {
+	names.push_back(Variable(pi, 3.14159));
+	names.push_back(Variable(e, 2.71828));
 	calculate();
 	return 0;
 }
